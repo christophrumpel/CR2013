@@ -1,0 +1,1107 @@
+// ***********************
+//         MODULE
+// ***********************
+
+// * discrete components like navigations, dialogs, widgets
+// * sit inside layout components, or inside other modules
+// * should  easily be moved to other layout elements
+// * avoid using IDs and element selectors
+// * use class names and descendent or child selectors
+// * avoid conditional styling based on location on the page, use sub classes instead
+// * Example: .pod.pod-callout { }
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	*START* GENERAL
+/*-----------------------------------------------------------------------------------*/
+.section-me,
+.section-location {
+	margin: 0 0 $main-margin 0;
+}
+
+.separator {
+	position: relative;
+	margin-top: 2*$main-margin;
+	height: 5px;	
+	.separator__content {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -18px;
+		margin-left: -18px;
+		text-align: center;
+	}
+	
+	&.seperator--me .separator__content img {
+		position: relative;
+		top: 9px;
+	}
+
+	&.seperator--location .separator__content span {
+		@include font-size(24px);
+		position: relative;
+		top: 5px;
+		color: #fff;
+	}
+
+	&.seperator--blog { 
+		margin-bottom: $main-margin;
+		margin-top: $main-margin;
+		span {
+			color: #fff;
+			@include font-size(55px);
+			@include font-family('ubuntulight_italic');
+			position: relative;
+			right: 8px;
+			top: -2px;
+		}
+	}
+}
+
+.btn { 
+	color: #fff; 
+	padding: $main-margin/4 $main-margin/4;
+	text-transform: uppercase;
+	text-align: center;
+	@include media-query(palm) { 
+		height: auto; 
+
+	}
+
+	a { 
+		color: #fff; 
+		&:hover { color: white; }	
+	}
+}
+
+.btn-send { 
+	float: right;
+	margin-bottom: $main-margin/2;
+}
+
+.info {
+	background: #fff;
+	padding: 10px 20px;
+	z-index: 5;
+}
+
+.info--top {
+	position: absolute;
+	top: 0px;
+	left: $main-margin;
+	margin-bottom: $main-margin;
+	@include media-query(palm) {  
+		right: 0;
+		width: 100%; 
+		left:0;
+	}
+}
+
+.info--job {
+	position: absolute;
+	top: 145px;
+	right: 0;
+	z-index: 5;
+	
+	@include media-query(lap) {
+		position: relative;
+		width: 403px;
+		margin: auto;
+		top: 28px;
+		text-align: center;
+	}
+	@include media-query(palm) { 
+		position: relative;
+		top: -2px;
+	}
+}
+
+.main-header {
+	height: 90px;
+	background-color: $darkgrey;
+	
+	@include vendor(transition, height 350ms cubic-bezier(0.86, 0, 0.07, 1));
+	@include media-query(palm) { 
+			height: 100%;
+			padding-top: $main-margin/2;
+		}
+}
+
+// .main-header {
+// 	&:hover { 
+// 		height: 110px;
+// 		@include media-query(palm) { height: auto; }
+// 		.main-nav { 
+// 			line-height: 110px;
+// 			@include media-query(palm) { line-height: 1; }
+// 		}
+// 	} 
+	
+// }
+
+	.logo {
+		float: left;
+		margin-top: 13px;
+		
+		@include media-query(palm) { 
+			float: none;
+			position: relative;
+			margin: 0 auto $main-margin/2;
+			width: 60px;
+			left: 0;
+		}
+	}
+
+		.logo__circle {
+			position: relative; 
+			
+			a { display: block; }
+			
+		}
+
+	.main-nav {
+		float: right;
+		line-height: 90px;
+		
+		@include media-query(palm) { 
+			float: none;
+			line-height: 1em;
+			margin-bottom: $main-margin/2;
+			display: none;
+		}
+		
+		@include vendor(transition, line-height 350ms cubic-bezier(0.86, 0, 0.07, 1));
+		
+		.main-nav__item {
+			position: relative;
+			margin-left: 20px;
+			padding-left: 20px;
+			background: url('_/img/menu_seperator.png') no-repeat;
+			background-position: left center;
+			
+			@include media-query(lap) { 
+				padding: 0 5px;
+				margin: 0;
+				background: none;
+			} 
+			
+			@include media-query(palm) { 
+				display: block;
+				padding: 10px 0;
+				margin-left: 0;
+				text-align: center;
+				background: none;
+			}
+
+			&:first-child { background: none; }
+
+			&:hover {
+
+				&.main-nav__home .arrow { left: 20px; }
+				&.main-nav__portfolio .arrow { left: 20px; }
+				&.main-nav__blog .arrow { left: 20px; }
+				&.main-nav__contact .arrow { left: 20px; }
+
+				@include media-query(palm) {
+					background-color: $grey; 
+				}
+			}
+
+		}
+
+		.main-nav__home a:hover { color: $cyan; }
+		.main-nav__blog a:hover { color: $pink; }
+		.main-nav__portfolio a:hover { color: $blue; }
+		.main-nav__contact a:hover { color: $orange; }
+
+		.arrow {
+			@include arrow(top, left, $grey);
+			
+			@include vendor(transition, all .5s);
+			position: absolute;
+			bottom: 0px;
+			left: 999px;
+			
+			@include media-query(palm) { display: none; }
+
+		}
+
+		a { 
+			@include font-family('ubuntulight');
+			@include font-size(20px); 
+			color: $grey;
+			text-transform: uppercase;
+			text-shadow: 0px 2px 1px #000;
+			
+			&:hover {
+				
+			}
+		}
+	}
+
+
+    .home .main-nav__home a { color: $cyan; }
+    .page--portfolio .main-nav__portfolio a { color: $blue; }
+    .page--blog .main-nav__blog a,
+    .single-post .main-nav__blog a { color: $pink; }
+    .page--contact .main-nav__contact a { color: $orange; }
+
+	.nav__pull {
+		position: absolute;
+		top: 20px;
+		right: 20px;
+		display: none;
+		color: #ececec !important;
+		
+		@include media-query(palm) { display: block; }
+	}
+
+	.logo__img {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		margin-top: -17px;
+		margin-left: -21px;
+	}
+
+.main-footer {
+	position: relative;
+	padding: 20px 0;
+	background-color: $darkgrey;
+	color: $grey;
+}
+
+	.main-footer__grid {
+		@include font-family('ubuntulight');
+		@include font-size(14px);
+		position: relative;
+		padding: 20px 0;
+		
+		a:hover { text-decoration: underline; }
+		
+		.main-footer__left { 
+			text-align: center; 
+			@include media-query(desk){ text-align: left; }
+		}
+		.main-footer__middle { 
+			text-align: center; 
+			@include media-query(desk){ text-align: center; }
+		}
+		.main-footer__right { 
+			text-align: center; 
+			@include media-query(desk){ text-align: right; }
+		}
+
+		.footer-nav {
+			margin-bottom: 0;
+		}
+			.footer-nav__item { margin-left: 5px; }
+			.footer-nav__item:first-child { margin-left: 0px; }
+	}
+
+	.backtotop {
+		position: absolute;
+		right: $main-margin;
+		bottom: $main-margin/2;
+	}
+/*-----------------------------------------------------------------------------------*/
+/*	*END* GENERAL
+/*-----------------------------------------------------------------------------------*/
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	*START* HOME
+/*-----------------------------------------------------------------------------------*/
+.section-me__icon-hi {
+	position: relative;
+	top: 0; 
+	margin-right: 20px;
+	float: left;
+	
+	@include media-query(lap) {
+		float: none;
+	} 
+	@include media-query(palm) { 
+		margin: $main-margin/2 auto;
+		float: none;
+		display: block;
+	}
+}
+
+.grid--me-header { 
+	height: 130px;
+	@include media-query(palm) { height: auto; }
+
+}
+
+.grid--header-group {
+	position: relative;
+}
+
+	.header-group { 
+		position: relative;
+		top: -11px;
+		height: 140px;
+		white-space: nowrap;
+		z-index: 10;
+		background: $grey;
+		
+		@include media-query(lap) { 
+			top: 19px;
+			text-align: center;
+			height: 106px;
+		}
+		@include media-query(palm) {
+			height: 64px;
+			text-align: center;
+		}
+		
+		.header-group__name {
+			position: relative;
+			top: 0px;
+			text-transform: uppercase;
+			letter-spacing: -1px;
+			@include font-family('ubuntubold');
+			
+			@include media-query(lap) { 
+				@include font-size(56px); 
+				top: -4px;
+			}
+			@include media-query(palm) { @include font-size(31px); }
+		}
+		.header-group__passion {
+			position: relative;
+			top: -21px; 
+			letter-spacing: 0px;
+			
+			@include media-query(lap) { @include font-size(30px); }
+			@include media-query(palm) { 
+				@include font-size(21px); 
+				top: -9px;
+				letter-spacing: -2px;
+			}
+		}
+	}
+
+.section-location {
+	position: relative;
+}
+	.grid--location { 
+		height: 134px; 
+		@include media-query(portable) { height: auto; text-align: center; }	
+	}
+	
+	.from-austria {
+		@include media-query(palm) { 
+			text-align: center; 
+		}
+	}
+
+		.from-austria__from {
+			@include font-family('ubuntulight_italic');
+			margin-top: 15px;
+			letter-spacing: 2px;
+			
+			@include media-query(palm) { 
+				line-height: 1;
+				margin-bottom: 10px;
+				@include font-size(32px);
+			}
+		}
+
+		.from-austria__austria {
+			position: relative;
+			top: -15px;
+			letter-spacing: 5px;
+			@include font-family('ubuntubold');
+			@include media-query(palm) {
+				@include font-size(50px);
+			}
+		}
+
+		.map {
+			position: relative;
+			top: -155px;
+			left: 394px;
+			width: 322px;
+			
+			@include media-query(portable) {
+				top: $main-margin/2;
+				margin: auto;
+				left:0;
+			}
+			@include media-query(palm) {
+				width: 253px;
+			}
+
+
+			.map__austria {
+
+			}
+			.map__location {
+				position: absolute;
+				top: 10px;
+				left: 250px;
+				@include vendor(animation, location 3s infinite);
+				@include media-query(palm) {
+					top: -10px;
+					left: 174px;
+				}
+			}
+			
+		}
+
+.section-love {
+	position: relative;
+	min-height: 380px;
+}
+	.header-iwanttheweb {
+		text-transform: uppercase;
+		letter-spacing: -2px;
+		position: relative;
+		top: 15px;
+		line-height: 1em;
+		
+		 @include media-query(portable) {
+		 	text-align: center;
+		 }
+		 @include media-query(palm) {
+			@include font-size(32px);
+		}
+	}
+
+	.awesome-sign {
+		position: relative;
+		height: 295px;
+		left: 150px;
+		max-width: 530px;
+		@include media-query(lap) {
+			width: 430px;
+			margin: auto;
+			left: 5%;
+			top: 20px;
+		}
+		@include media-query(palm) {
+			margin-top: 20px;
+			left: 0px;
+		}
+	}
+
+	.awesome-sign__shadow {
+		position: absolute;
+		z-index: 10;
+		top: 21px;
+		left: 0;
+		
+		@include media-query(lap) {
+			width: 360px;
+			height: 125px;
+			top: 11px;
+			left: 5px;
+		}
+		@include media-query(palm) {
+			width: 280px;
+			height: 97px;
+			top: 12px;
+		}
+	}
+
+	.awesome-sign__awesome {
+		position: absolute;
+		z-index: 20;
+		top: 7px;
+		left: 0;
+		
+		@include media-query(lap) {
+			width: 360px;
+			height: 125px;
+		}
+		@include media-query(palm) {
+			width: 280px;
+			height: 97px;
+		}
+	}
+
+	.awesome-sign__arrow {
+		position: relative;
+		top: 50px;
+		left: 414px;
+		
+		@include media-query(portable) {
+			display: none;
+		}
+		
+	}
+
+	.awesome-sign__devices {
+		position: absolute;
+		z-index: 15;
+		top: 89px;
+		left: -27px;
+		
+		@include media-query(palm) {
+			top: 45px;
+			left: -40px;
+		}
+		
+	}
+		.awesome-sign__device {
+			position: relative
+		}
+
+		.awesome-sign__devices-phone {
+			left: 60px;
+			@include vendor(animation, swinging 3s infinite ease-in-out);
+			@include vendor(transform-origin, top);
+			
+			@include media-query(palm) {
+				left: 38px;
+			}
+		}
+
+		.awesome-sign__devices-tablet {
+			left: 120px;
+			top: 10px;
+			@include vendor(animation, swinging 3s infinite ease-in-out);
+			@include vendor(transform-origin, top);
+			@include vendor(animation-delay, .5s);
+			
+			@include media-query(lap) {
+				top: -4px;
+			}
+			@include media-query(palm) {
+				left: 45px;
+				top: 13px;
+			}
+		}
+
+		.awesome-sign__devices-desktop {
+			left: 170px;
+			@include vendor(animation, swinging 3s infinite ease-in-out);
+			@include vendor(transform-origin, top);
+			@include vendor(animation-delay, .2s);
+			
+			@include media-query(palm) {
+				left: 60px;
+			}
+		}
+/*-----------------------------------------------------------------------------------*/
+/*	*END* HOME
+/*-----------------------------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	*START* portfolio
+/*-----------------------------------------------------------------------------------*/
+.reference {
+	margin: $main-margin 0 $main-margin*1.5;
+}
+
+.reference-year {
+	&:first-child { margin: 0; }
+}
+
+.reference__image-wrapper { position: relative; }
+.reference__image-shadow {
+	position: absolute;
+	left: 0px;
+	top: 6px;
+	background: $greyshadow;
+	width: 100%;
+	max-width: 540px;
+	height: 100%;
+	max-height: 310px;
+	@include vendor(transform, rotate(0.8deg));
+	@include vendor(transform-origin, left);
+	
+	@include media-query(lap) { top: 2px; }
+	@include media-query(palm) { top: 1px; }
+}
+
+.reference__image {
+	position: relative;
+	border: 15px solid $blue;
+	outline: 5px solid #fff;
+	@include vendor(transition, border-color 0.5s);
+	
+	&:hover {
+		border: 15px solid darken($blue, 10%);
+	}
+}
+
+.reference__cat { 
+	@include font-family('ubuntumedium');
+	@include media-query(palm){ margin-top: $main-margin/2; }
+	
+}
+
+.reference__title { 
+	margin-bottom: $main-margin/4; 
+	@include font-family('ubuntubold');	
+}
+
+.reference__info { 
+	margin-bottom: $main-margin/2; 
+}
+/*-----------------------------------------------------------------------------------*/
+/*	*END* portfolio
+/*-----------------------------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	*START* Blog Overview
+/*-----------------------------------------------------------------------------------*/
+
+.articles {
+	margin-left: 0;
+}
+
+.blog-intro {
+	@include font-family('ubuntulight_italic');
+	text-align: center;
+	width: 80%;
+	margin: auto;
+	@include font-size(20px);
+	line-height: 1.3em;
+}
+
+.articles__item {
+	list-style: none;
+	padding: $main-margin/4 0;
+}
+
+	.articles__date {
+		position: relative;
+		top: 2px;
+		@include font-size(16px);
+
+		@include media-query(palm){
+			
+			top: 0;
+		}		
+	}
+
+	.articles__title {
+		@include font-family('ubuntubold');
+		@include font-size(24px);
+		@include media-query(palm){
+			
+		}		
+	}
+
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	*END* Blog
+/*-----------------------------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	*START*  Blog Detail
+/*-----------------------------------------------------------------------------------*/
+.article {
+	
+	ul {
+		margin-top: $main-margin/4;
+		margin-bottom: $main-margin/2;
+	}
+
+	p {
+		margin: $main-margin/4 0;
+	}
+
+	blockquote p {
+		margin: 0;
+	}
+
+}
+
+
+
+	.article__title {
+		@include font-family('ubuntubold');
+		@include media-query(palm){
+			@include font-size(24px);
+		}
+
+	}
+
+	.article__subheadline {
+		@include font-size(28px);
+		margin: $main-margin 0 $main-margin/4 0;
+
+		@include media-query(palm){
+			@include font-size(20px);
+		}
+	}
+	
+	.article__date {
+		margin-bottom: $main-margin/2;
+	}
+
+	.toc {
+		margin: $main-margin/4 0 0 $main-margin/2;
+	}
+		.toc__title {
+			margin-bottom: $main-margin/4;
+		}
+		.toc__list {
+			margin-left: 23px;
+		}
+
+		.toc__list-chapter {
+			margin-left: 0;
+		}
+
+	article .article__intro {
+		@include font-family('ubuntumedium');
+		margin-bottom: $main-margin / 1.5;
+		padding: $main-margin/2 0px;
+	}
+
+	.ul__headline {
+		@include font-family('ubuntubold');
+		margin-top: $main-margin/4;
+	}
+
+	blockquote {
+		@include font-family('ubuntulight_italic');
+		border-left: 10px solid gray;
+		border-right: 10px solid gray;
+		background: #ddd;
+		text-align: center;
+		padding: $main-margin/4 $main-margin/2;
+		margin-top: $main-margin/2;
+		@include font-size(20px);
+	}
+
+	article .quote--intern {
+		@extend blockquote;
+		margin-bottom: $main-margin/2;
+	}
+
+	.quote--intern:before{
+	    content:"#{$open-quote}";
+	    content:open-quote;
+	}
+	.quote--intern:after{
+	    content:"#{$close-quote}";
+	    content:close-quote;
+	}
+
+	article .quote-author {
+		text-align: right;
+		@include font-size(14px);
+		margin: 0;
+	}
+	
+	/* Wrapper of post images with caption*/
+	.wp-caption {
+		float: left;
+		margin-bottom: $main-margin/4;
+		text-align: center;
+
+		@include media-query(palm){
+			width: 100% !important;
+		}
+	}
+		.wp-caption-text{
+			@include font-family('ubuntulight_italic');
+			@include font-size(14px);
+		}
+	#disqus_thread {
+		margin-top: $main-margin/2;
+	}
+
+/*-----------------------------------------------------------------------------------*/
+/*	*END* Blog Detail
+/*-----------------------------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------------------------*/
+/*	*START* Lightbox
+/*-----------------------------------------------------------------------------------*/
+/* line 6, ../sass/lightbox.sass */
+#lightboxOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  background-color: black;
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=85);
+  opacity: 0.85;
+  display: none;
+}
+
+/* line 15, ../sass/lightbox.sass */
+#lightbox {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 10000;
+  text-align: center;
+  line-height: 0;
+  font-weight: normal;
+}
+/* line 24, ../sass/lightbox.sass */
+#lightbox img {
+  width: auto;
+  height: auto;
+}
+/* line 27, ../sass/lightbox.sass */
+#lightbox a img {
+  border: none;
+}
+
+/* line 30, ../sass/lightbox.sass */
+.lb-outerContainer {
+  position: relative;
+  background-color: white;
+  *zoom: 1;
+  width: 250px;
+  height: 250px;
+  margin: 0 auto;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.lb-outerContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 39, ../sass/lightbox.sass */
+.lb-container {
+  padding: 10px;
+}
+
+/* line 42, ../sass/lightbox.sass */
+.lb-loader {
+  position: absolute;
+  top: 40%;
+  left: 0%;
+  height: 25%;
+  width: 100%;
+  text-align: center;
+  line-height: 0;
+}
+
+/* line 51, ../sass/lightbox.sass */
+.lb-nav {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+
+/* line 59, ../sass/lightbox.sass */
+.lb-container > .nav {
+  left: 0;
+}
+
+/* line 62, ../sass/lightbox.sass */
+.lb-nav a {
+  outline: none;
+}
+
+/* line 65, ../sass/lightbox.sass */
+.lb-prev, .lb-next {
+  width: 49%;
+  height: 100%;
+  background-image: url("data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+  /* Trick IE into showing hover */
+  display: block;
+}
+
+/* line 72, ../sass/lightbox.sass */
+.lb-prev {
+  left: 0;
+  float: left;
+}
+
+/* line 76, ../sass/lightbox.sass */
+.lb-next {
+  right: 0;
+  float: right;
+}
+
+/* line 81, ../sass/lightbox.sass */
+.lb-prev:hover {
+  background: url(_/img/prev.png) left 48% no-repeat;
+}
+
+/* line 85, ../sass/lightbox.sass */
+.lb-next:hover {
+  background: url(_/img/next.png) right 48% no-repeat;
+}
+
+/* line 88, ../sass/lightbox.sass */
+.lb-dataContainer {
+  margin: 0 auto;
+  padding-top: 5px;
+  *zoom: 1;
+  width: 100%;
+  -moz-border-radius-bottomleft: 4px;
+  -webkit-border-bottom-left-radius: 4px;
+  -ms-border-bottom-left-radius: 4px;
+  -o-border-bottom-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  -moz-border-radius-bottomright: 4px;
+  -webkit-border-bottom-right-radius: 4px;
+  -ms-border-bottom-right-radius: 4px;
+  -o-border-bottom-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+/* line 38, ../../../../.rvm/gems/ruby-1.9.2-p290/gems/compass-0.12.1/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+.lb-dataContainer:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* line 95, ../sass/lightbox.sass */
+.lb-data {
+  padding: 0 10px;
+  color: #bbbbbb;
+}
+/* line 98, ../sass/lightbox.sass */
+.lb-data .lb-details {
+  width: 85%;
+  float: left;
+  text-align: left;
+  line-height: 1.1em;
+}
+/* line 103, ../sass/lightbox.sass */
+.lb-data .lb-caption {
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1em;
+}
+/* line 107, ../sass/lightbox.sass */
+.lb-data .lb-number {
+  display: block;
+  clear: left;
+  padding-bottom: 1em;
+  font-size: 11px;
+}
+/* line 112, ../sass/lightbox.sass */
+.lb-data .lb-close {
+  width: 35px;
+  float: right;
+  padding-bottom: 0.7em;
+  outline: none;
+}
+/* line 117, ../sass/lightbox.sass */
+.lb-data .lb-close:hover {
+  cursor: pointer;
+}
+
+@include media-query(portable){
+	.lb-image, .lb-dataContainer, .lb-outerContainer { max-width: 100%; height: auto !important; width: auto !important; }
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	*END* Lightbox
+/*-----------------------------------------------------------------------------------*/
+
+/*-----------------------------------------------------------------------------------*/
+/*	*START* CONTACT
+/*-----------------------------------------------------------------------------------*/
+.contact-headline {
+	letter-spacing: 1px;
+	line-height: 1;
+	margin-bottom: $main-margin/2;
+	@include media-query(palm){ 
+		@include font-size(33px);
+		text-align: center;
+		margin-top: 25px;
+	}
+}
+
+.contact-dropmealine {
+	margin-bottom: $main-margin/2;
+}
+
+.contact-christoph-wrapper {
+	position: relative;
+	max-height: 230px;
+	text-align: center;
+}
+
+.contact__thx {
+	@include media-query(palm){
+		line-height: 1em;
+		text-align: center;
+		margin-bottom: $main-margin/2;
+		@include font-size(33px);
+	}
+}
+
+.contact__linesdrop {
+	@include media-query(palm){
+		line-height: 1em;
+		margin-bottom: $main-margin/2;
+		text-align: center;
+		@include font-size(20px);
+	}
+}
+
+.contact-lines {
+	background-image: url('_/img/lines.png');
+	background-repeat: no-repeat;
+	width: 306px;
+	height: 83px;
+	@include vendor(animation, fall 5s);
+	
+	@include media-query(palm){
+		width: 100%;
+		background-position: center center;
+		 
+	}
+}
+
+	.contact-christoph {
+		position: relative;
+		top: -121px;
+		@include media-query(lap){ 
+			width: 150px; 
+			top: -39px;
+		}
+	}
+
+	.contact-form__name,
+	.contact-form__mail,
+	.contact-form__message { 
+		width: 100%;
+		padding: $main-margin/4 0 $main-margin/4 $main-margin/2;
+		color: #fff;
+		
+		@include media-query(palm){ 
+		 	@include font-size(12px);
+		}
+	}
+
+	/* contact labels */
+	.contact-form__name-label,
+	.contact-form__mail-label { 
+		position: absolute;
+		top: 0;
+		padding: 9px 0 9px 20px;
+		color: #fff;
+	}
+
+	.contact-form__message {
+		margin: $main-margin/2 0;
+		height: $main-margin*4;
+	}
+/*-----------------------------------------------------------------------------------*/
+/*	*END* CONTACT
+/*-----------------------------------------------------------------------------------*/
+

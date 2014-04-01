@@ -1,0 +1,114 @@
+@mixin border-radius($radius) {
+	-webkit-border-radius: $radius;
+	border-radius: $radius;
+}
+
+@mixin margin-bottom($margin){
+    margin-bottom: $margin;
+    margin-bottom:($margin / $base-font-size)*1rem;
+}
+
+@mixin margin-top($margin){
+    margin-top: $margin;
+    margin-top:($margin / $base-font-size)*1rem;
+}
+
+@mixin circle($width : 100px, $color : #CC0066) {
+	width: $width;
+	height: $width;
+	background: $color;
+	@include border-radius($width);
+}
+
+@mixin font-family($family) {
+	font-family: $family, sans-serif;
+}
+
+@mixin theme-colors($color){
+
+	$color-dark: darken( $color, 10%);
+
+	h1, h2, h3 { 
+		color: $color; 
+		font-weight: normal; 
+	}
+
+	a { 
+		color: $color;
+		@include vendor(transition, color 0.5s); 
+	}
+	
+	a:hover { 
+		color: darken($color, 10% );
+	}
+
+	p a:hover { text-decoration: underline; }
+	
+	.theme-color { color: $color; }
+	
+    .logo__circle { 
+    	@include vendor(transition, background 0.5s);
+    	@include circle(60px, $color ); 
+    	&:hover {
+    		background: darken($color, 10% );
+    	}
+    }
+    .main-header { border-bottom: 5px solid $color; }
+
+    .separator { 
+    	background: $color; 
+    	.separator__content { @include circle(36px, $color ); }
+    }
+
+    input, textarea { 
+    	background-color: $color; 
+    }
+
+    /* Styling Selected Text */
+    ::selection{
+	    background-color:$color;
+	    color:#fff;
+	}
+
+	::-moz-selection{
+	    background-color:$color;
+	    color:#fff;
+	}
+
+	/* Styling Input Placeholder */
+	::-webkit-input-placeholder {
+   		color: #fff;
+	}
+
+	:-moz-placeholder { /* Firefox 18- */
+	   color: #fff; 
+	}
+
+	::-moz-placeholder {  /* Firefox 19+ */
+	   color: #fff;  
+	}
+
+	:-ms-input-placeholder {  
+	   color: #fff; 
+	}
+
+	.btn {  
+		@include vendor(transition, background-color 0.5s);
+		background-color: $color; 
+	}
+
+	.btn:hover, .btn:active { background-color: $color-dark; }
+
+	.articles__item {
+		border-bottom: 2px solid $color; 
+	}
+
+	.articles__date {
+		color: $color;
+	}
+
+	.article__intro {
+		border-bottom: 2px solid $color;
+		border-top: 2px solid $color;
+	}
+}
