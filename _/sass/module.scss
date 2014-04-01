@@ -702,6 +702,8 @@
 /*-----------------------------------------------------------------------------------*/
 .article {
 	
+	@include font-size(20px);
+
 	ul {
 		margin-top: $main-margin/4;
 		margin-bottom: $main-margin/2;
