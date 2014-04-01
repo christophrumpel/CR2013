@@ -1,9 +1,9 @@
 /*
 Syntax error: Undefined variable: "$main-margin".
-        on line 19 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/module.scss
+        on line 13 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/layout.scss
 
 Backtrace:
-/Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/module.scss:19
+/Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/layout.scss:13
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/variable.rb:49:in `_perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/node.rb:40:in `perform'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/list.rb:71:in `block in _perform'
@@ -63,4 +63,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$main-margin\".\A         on line 19 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/module.scss"; }
+  content: "Syntax error: Undefined variable: \"$main-margin\".\A         on line 13 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/layout.scss"; }

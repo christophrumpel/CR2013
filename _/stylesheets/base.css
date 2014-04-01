@@ -1,26 +1,12 @@
 /*
-Syntax error: Undefined variable: "$main-margin".
-        on line 19 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/module.scss
+Syntax error: Undefined mixin 'keyframe'.
+        on line 70 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/base.scss, in `keyframe'
+        from line 70 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/base.scss
 
 Backtrace:
-/Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/module.scss:19
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/variable.rb:49:in `_perform'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/node.rb:40:in `perform'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/list.rb:71:in `block in _perform'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/list.rb:71:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/list.rb:71:in `_perform'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/script/node.rb:40:in `perform'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/perform.rb:298:in `visit_prop'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/base.rb:37:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/perform.rb:100:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/base.rb:53:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/base.rb:53:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/perform.rb:109:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/perform.rb:121:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/perform.rb:108:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/base.rb:37:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/perform.rb:320:in `visit_rule'
+/Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/base.scss:70:in `keyframe'
+/Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/base.scss:70
+/Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/perform.rb:253:in `visit_mixin'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/base.rb:37:in `visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/perform.rb:100:in `visit'
 /Library/Ruby/Gems/2.0.0/gems/sass-3.2.18/lib/sass/tree/visitors/base.rb:53:in `block in visit_children'
@@ -63,4 +49,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Syntax error: Undefined variable: \"$main-margin\".\A         on line 19 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/module.scss"; }
+  content: "Syntax error: Undefined mixin 'keyframe'.\A         on line 70 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/base.scss, in `keyframe'\A         from line 70 of /Users/christophrumpel/Documents/projects/christoph-rumpel.com/theme_clone/_/sass/base.scss"; }

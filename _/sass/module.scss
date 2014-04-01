@@ -702,7 +702,8 @@
 /*-----------------------------------------------------------------------------------*/
 .article {
 	
-	@include font-size(20px);
+	@include font-size(18px);
+	line-height: 1.4; 
 
 	ul {
 		margin-top: $main-margin/4;
